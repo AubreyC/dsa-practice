@@ -1,0 +1,234 @@
+{
+  "remote.extensionKind": {
+    "ms-azuretools.vscode-docker": "workspace"
+  },
+  "explorer.confirmDelete": false,
+  "editor.tabSize": 2,
+  "workbench.tree.indent": 2,
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#dd0531"
+    },
+    {
+      "name": "Auth0 Orange",
+      "value": "#eb5424"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "C# Purple",
+      "value": "#68217A"
+    },
+    {
+      "name": "Gatsby Purple",
+      "value": "#639"
+    },
+    {
+      "name": "Go Cyan",
+      "value": "#5dc9e2"
+    },
+    {
+      "name": "Java Blue-Gray",
+      "value": "#557c9b"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#61dafb"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Svelte Orange",
+      "value": "#ff3d00"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.confirmDragAndDrop": true,
+  "git.confirmSync": false,
+  "C_Cpp.default.configurationProvider": "master",
+  "files.associations": {
+    "chrono": "cpp",
+    "variant": "cpp",
+    "compare": "cpp",
+    "array": "cpp",
+    "atomic": "cpp",
+    "bit": "cpp",
+    "*.tcc": "cpp",
+    "bitset": "cpp",
+    "cctype": "cpp",
+    "clocale": "cpp",
+    "cmath": "cpp",
+    "concepts": "cpp",
+    "condition_variable": "cpp",
+    "coroutine": "cpp",
+    "cstdarg": "cpp",
+    "cstddef": "cpp",
+    "cstdint": "cpp",
+    "cstdio": "cpp",
+    "cstdlib": "cpp",
+    "cstring": "cpp",
+    "ctime": "cpp",
+    "cwchar": "cpp",
+    "cwctype": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp",
+    "exception": "cpp",
+    "algorithm": "cpp",
+    "functional": "cpp",
+    "iterator": "cpp",
+    "memory": "cpp",
+    "memory_resource": "cpp",
+    "numeric": "cpp",
+    "optional": "cpp",
+    "random": "cpp",
+    "ratio": "cpp",
+    "string_view": "cpp",
+    "system_error": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "fstream": "cpp",
+    "initializer_list": "cpp",
+    "iomanip": "cpp",
+    "iosfwd": "cpp",
+    "iostream": "cpp",
+    "istream": "cpp",
+    "limits": "cpp",
+    "mutex": "cpp",
+    "new": "cpp",
+    "numbers": "cpp",
+    "ostream": "cpp",
+    "ranges": "cpp",
+    "scoped_allocator": "cpp",
+    "semaphore": "cpp",
+    "shared_mutex": "cpp",
+    "span": "cpp",
+    "sstream": "cpp",
+    "stdexcept": "cpp",
+    "stop_token": "cpp",
+    "streambuf": "cpp",
+    "thread": "cpp",
+    "typeindex": "cpp",
+    "typeinfo": "cpp",
+    "__node_handle": "cpp",
+    "__split_buffer": "cpp",
+    "queue": "cpp",
+    "complex": "cpp",
+    "source_location": "cpp",
+    "cinttypes": "cpp",
+    "driver_manager.h": "c",
+    "stm32h7xx_ll_gpio.h": "c",
+    "stm32h7xx_it.h": "c",
+    "main.h": "c",
+    "codecvt": "cpp",
+    "stdbool.h": "c",
+    "usbd_midi.h": "c",
+    "*.in": "cpp",
+    "*.ipp": "cpp",
+    "csetjmp": "cpp",
+    "hash_map": "cpp",
+    "strstream": "cpp",
+    "cfenv": "cpp",
+    "stacktrace": "cpp",
+    "csignal": "cpp",
+    "valarray": "cpp",
+    "any": "cpp",
+    "future": "cpp",
+    "filesystem": "cpp",
+    "worker_definition.h": "c",
+    "stm32g0xx_hal.h": "c",
+    "stm32g0xx_ll_bus.h": "c",
+    "stm32g0xx_ll_system.h": "c",
+    "stm32g0xx_ll_exti.h": "c",
+    "charconv": "cpp",
+    "format": "cpp",
+    "regex": "cpp",
+    "__bit_reference": "cpp",
+    "__hash_table": "cpp",
+    "__bits": "cpp",
+    "__config": "cpp",
+    "__debug": "cpp",
+    "__errc": "cpp",
+    "__locale": "cpp",
+    "__mutex_base": "cpp",
+    "__threading_support": "cpp",
+    "__tuple": "cpp",
+    "__verbose_abort": "cpp",
+    "ios": "cpp",
+    "locale": "cpp",
+    "__nullptr": "cpp",
+    "__string": "cpp",
+    "stdfloat": "cpp",
+    "color565": "cpp",
+    "*.mm": "cpp",
+    "__tree": "cpp",
+    "stack": "cpp"
+  },
+  "editor.detectIndentation": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "cortex-debug.variableUseNaturalFormat": false,
+  "cmake.configureOnEdit": false,
+  "cmake.configureSettings": {
+  },
+  "CppHelper.HeaderGuardPattern": "{FILE}_HPP",
+  "explorer.sortOrder": "foldersNestsFiles",
+  "explorer.sortOrderLexicographicOptions": "upper",
+  "C_Cpp.errorSquiggles": "enabled",
+  "cmake.configureOnOpen": false,
+  "cmake.options.statusBarVisibility": "compact",
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "clangd.arguments": [
+    "--query-driver=**",
+    "--header-insertion=never"
+  ],
+  "clangd.path": "clangd-18", // Adjust the path as necessary
+  "[c]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnSave": true,
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnSave": true,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "ms-vscode.js-debug",
+    "editor.formatOnSave": true,
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "gitlab.duoCodeSuggestions.enabled": false,
+  "gitlab.duoChat.enabled": false,
+  "gitlab.duo.enabledWithoutGitlabProject": false
+}

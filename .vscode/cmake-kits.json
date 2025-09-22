@@ -1,0 +1,6 @@
+[
+  {
+    "name": "MacOS homebrew clang",
+    "toolchainFile": "./macos-homebrew-clang.cmake"
+  }
+]
