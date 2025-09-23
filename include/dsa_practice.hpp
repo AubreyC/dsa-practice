@@ -1,3 +1,6 @@
+#ifndef DSA_PRACTICE_HPP
+#define DSA_PRACTICE_HPP
+
 #include <optional>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,16 +18,18 @@ namespace dsa_practice
   // Datastructure
   struct ListNode
   {
-    int value;
-    ListNode *next = nullptr;
+    int value{};
+    ListNode *next{};
 
     ListNode(int v) :
-      value(v),
-      next(nullptr) {};
+      value(v)
+    {
+    }
   };
 
   ListNode *addTwoNumbers(ListNode *l1, ListNode *l2);
-  ListNode *inverse(ListNode *head);
-  ListNode *deepCopy(ListNode *head);
+  ListNode *detectCycle(ListNode *head); // Declaration of detectCycle function
 
 } // namespace dsa_practice
+
+#endif

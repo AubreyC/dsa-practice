@@ -8,7 +8,6 @@ namespace dsa_practice
   std::vector<int> merge(const std::vector<int> &ret1, const std::vector<int> &ret2)
   {
     // Merge two sorted vectors with double pointer (iterator) logic
-
     auto itRet1 = ret1.begin();
     auto itRet2 = ret2.begin();
 
@@ -124,24 +123,12 @@ namespace dsa_practice
     // - compute new digit: sum of the digits from linked lists + reminder
     // - set new digit as sum % 10 and set reminder = sum / 10
 
-    // ListNode* currentL1 = l1;
-    // ListNode* currentL2 = l2;
-
     ListNode *headRet = nullptr;
     ListNode *headLast = nullptr;
 
     int reminder = 0;
-    int idx = 0;
-
     while (currentL1 || currentL2)
     {
-      std::cout << "idx: " << idx << std::endl;
-      idx++;
-      // if(idx > 2)
-      // {
-      //     break;
-      // }
-
       int sum = reminder + (currentL1 ? currentL1->value : 0) + (currentL2 ? currentL2->value : 0);
       reminder = sum / 10;
 
@@ -174,6 +161,46 @@ namespace dsa_practice
     }
 
     return headRet;
+  }
+
+  // Implementation of detectCycle function
+  ListNode *detectCycle(ListNode *head)
+  {
+    if (head == nullptr || head->next == nullptr)
+    {
+      return nullptr;
+    }
+
+    ListNode *tortoise = head;
+    ListNode *hare = head;
+
+    // Phase 1: Finding the meeting point
+    while (hare != nullptr && hare->next != nullptr)
+    {
+      tortoise = tortoise->next; // Move one step
+      hare = hare->next->next;   // Move two steps
+
+      if (tortoise == hare)
+      {
+        break;
+      }
+    }
+
+    // If there is no cycle, return nullptr
+    if (tortoise != hare)
+    {
+      return nullptr;
+    }
+
+    // Phase 2: Finding the starting point of the cycle
+    tortoise = head;
+    while (tortoise != hare)
+    {
+      tortoise = tortoise->next; // Move one step
+      hare = hare->next;         // Move one step
+    }
+
+    return tortoise; // The meeting point is the start of the cycle
   }
 
 } // namespace dsa_practice
