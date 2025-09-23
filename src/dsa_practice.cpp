@@ -49,60 +49,55 @@ namespace dsa_practice
 
   std::vector<int> mergeSort(const std::vector<int> &nums)
   {
-    if (nums.size() == 1)
+    if (nums.size() <= 1)
     {
       return nums;
     }
-    else if (nums.size() == 2)
-    {
-      if (nums[0] <= nums[1])
-      {
-        return nums;
-      }
-      else
-      {
-        std::vector<int> ret = {nums[1], nums[0]};
-        return ret;
-      }
-    }
-    else
-    {
-      const size_t mid = (nums.size() - 1) / 2;
 
-      const std::vector<int> vec1(nums.begin(), nums.begin() + mid);
-      const auto ret1 = mergeSort(vec1);
+    const size_t mid = nums.size() / 2;
 
-      const std::vector<int> vec2(nums.begin() + mid, nums.end());
-      const auto ret2 = mergeSort(vec2);
+    const std::vector<int> vec1(nums.begin(), nums.begin() + mid);
+    const auto ret1 = mergeSort(vec1);
 
-      return merge(ret1, ret2);
-    }
-    return {};
+    const std::vector<int> vec2(nums.begin() + mid, nums.end());
+    const auto ret2 = mergeSort(vec2);
+
+    return merge(ret1, ret2);
   }
 
   std::optional<int> binarySearch(const std::vector<int> &nums, const int target)
   {
+    // Handle empty input
+    if (nums.empty())
+    {
+      return {};
+    }
+
     // Sort array first
     std::vector<int> sortedNums = nums;
     std::sort(sortedNums.begin(), sortedNums.end());
 
-    // Actual binary search
-    size_t idxS = 0;
-    size_t idxE = sortedNums.size() - 1;
-    while (idxS <= idxE)
+    // Actual binary search (inclusive bounds)
+    size_t idxStart = 0;
+    size_t idxEnd = sortedNums.size() - 1;
+    while (idxStart <= idxEnd)
     {
-      size_t mid = (idxE - idxS) / 2 + idxS;
+      size_t mid = (idxEnd - idxStart) / 2 + idxStart;
       if (sortedNums[mid] == target)
       {
-        return {mid};
+        return {static_cast<int>(mid)};
       }
       else if (sortedNums[mid] > target)
       {
-        idxE = mid - 1;
+        if (mid == 0)
+        {
+          break; // Prevent size_t underflow
+        }
+        idxEnd = mid - 1;
       }
       else
       {
-        idxS = mid + 1;
+        idxStart = mid + 1;
       }
     }
 
