@@ -13,10 +13,10 @@ Exercices:
 
 - [x] Array Data Structure
 - [x] String in Data Structure
-- [] Hashing in Data Structure
-- [] Linked List Data Structure
-- [] Stack Data Structure
-- [] Queue Data Structure
+- [x] Hashing in Data Structure
+- [x] Linked List Data Structure
+- [x] Stack Data Structure
+- [x] Queue Data Structure
 - [] Tree Data Structure
 - [] Graph Data Structure
 - [] Trie Data Structure
