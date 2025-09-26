@@ -203,4 +203,95 @@ namespace dsa_practice
     return tortoise; // The meeting point is the start of the cycle
   }
 
+  LRUCache::LRUCache(int capacity)
+  {
+    mCache.reserve(capacity);
+    mCapacity = capacity;
+  }
+
+  void LRUCache::removeNode(Node *node)
+  {
+    if (node->prev)
+    {
+      node->prev->next = node->next;
+    }
+
+    if (node->next)
+    {
+      node->next->prev = node->prev;
+    }
+
+    if (mLastNode == node)
+    {
+      mLastNode = node->prev;
+    }
+
+    if (mHeadNode == node)
+    {
+      mHeadNode = node->next;
+    }
+  }
+
+  void LRUCache::pushNode(Node *node)
+  {
+    if (!mHeadNode)
+    {
+      mHeadNode = node;
+    }
+    else
+    {
+      mHeadNode->prev = node;
+      node->next = mHeadNode;
+      node->prev = nullptr;
+      mHeadNode = node;
+    }
+
+    if (!mLastNode)
+    {
+      mLastNode = node;
+    }
+  }
+
+  int LRUCache::get(int key)
+  {
+    int ret = -1;
+    if (mCache.count(key) > 0)
+    {
+      Node *node = mCache[key];
+      removeNode(node);
+      pushNode(node);
+      ret = node->value;
+    }
+    std::cout << "get: " << key << " " << ret << std::endl;
+    return ret;
+  }
+
+  void LRUCache::put(int key, int value)
+  {
+    std::cout << "push: " << key << " " << value << std::endl;
+    if (mCache.count(key) > 0)
+    {
+      Node *node = mCache[key];
+      node->key = key;
+      node->value = value;
+      removeNode(node);
+      pushNode(node);
+    }
+    else
+    {
+      Node *newNode = new Node(key, value);
+      mCache[key] = newNode;
+      pushNode(newNode);
+
+      // Delete last node
+      if (mCache.size() > mCapacity)
+      {
+        mCache.erase(mLastNode->key);
+        Node *lastNode = mLastNode;
+        removeNode(lastNode);
+        delete lastNode;
+      }
+    }
+  }
+
 } // namespace dsa_practice

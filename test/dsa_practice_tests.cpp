@@ -153,3 +153,31 @@ TEST_CASE("Detect No Cycle in Empty List", "[dsa_practice]")
   dsa_practice::ListNode *cycleNode = dsa_practice::detectCycle(head);
   REQUIRE(cycleNode == nullptr);
 }
+
+TEST_CASE("LRU Cache - 1", "[dsa_practice]")
+{
+  dsa_practice::LRUCache LRUCache(2);
+
+  LRUCache.put(1, 10);
+  REQUIRE(LRUCache.get(1) == 10);
+  LRUCache.put(2, 20);
+  LRUCache.put(3, 30);
+  REQUIRE(LRUCache.get(2) == 20);
+  REQUIRE(LRUCache.get(3) == 30);
+  REQUIRE(LRUCache.get(1) == -1);
+}
+
+TEST_CASE("LRU Cache - 2", "[dsa_practice]")
+{
+  dsa_practice::LRUCache LRUCache(2);
+
+  LRUCache.put(1, 1);
+  LRUCache.put(2, 2);
+  REQUIRE(LRUCache.get(1) == 1);
+  LRUCache.put(3, 3);
+  REQUIRE(LRUCache.get(2) == -1);
+  LRUCache.put(4, 4);
+  REQUIRE(LRUCache.get(1) == -1);
+  REQUIRE(LRUCache.get(3) == 3);
+  REQUIRE(LRUCache.get(4) == 4);
+}
