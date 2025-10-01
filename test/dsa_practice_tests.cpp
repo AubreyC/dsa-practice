@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <catch2/catch_test_macros.hpp>
 
-// #include <iostream>
-
-#include "dsa_practice.hpp"
+#include "dsa_linked_list.hpp"
+#include "dsa_lru_cache.hpp"
+#include "dsa_search_sort.hpp"
 
 TEST_CASE("Binary Search", "[dsa_practice]")
 {
@@ -40,7 +40,7 @@ TEST_CASE("Merge", "[dsa_practice]")
   std::vector<int> numbers2 = {2, 7, 2, 4, 37, 9, 10, 16};
   std::sort(numbers2.begin(), numbers2.end());
 
-  auto ret = dsa_practice::merge(numbers1, numbers2);
+  auto ret = dsa_practice::mergeSorted(numbers1, numbers2);
 
   // Ground truth:
   std::vector<int> truth(numbers1.size() + numbers2.size(), 0);
@@ -56,10 +56,10 @@ TEST_CASE("Merge - Either empty", "[dsa_practice]")
 {
   std::vector<int> leftSorted = {};
   std::vector<int> rightSorted = {1, 2, 3};
-  auto ret1 = dsa_practice::merge(leftSorted, rightSorted);
+  auto ret1 = dsa_practice::mergeSorted(leftSorted, rightSorted);
   REQUIRE(ret1 == rightSorted);
 
-  auto ret2 = dsa_practice::merge(rightSorted, leftSorted);
+  auto ret2 = dsa_practice::mergeSorted(rightSorted, leftSorted);
   REQUIRE(ret2 == rightSorted);
 }
 
@@ -67,7 +67,7 @@ TEST_CASE("Merge - Both empty", "[dsa_practice]")
 {
   std::vector<int> leftSorted = {};
   std::vector<int> rightSorted = {};
-  auto ret = dsa_practice::merge(leftSorted, rightSorted);
+  auto ret = dsa_practice::mergeSorted(leftSorted, rightSorted);
   REQUIRE(ret.empty());
 }
 
@@ -99,11 +99,11 @@ TEST_CASE("Merge Sort - Single element", "[dsa_practice]")
 TEST_CASE("Detect Cycle in Linked List", "[dsa_practice]")
 {
   // Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
-  dsa_practice::ListNode *node1 = new dsa_practice::ListNode(1);
-  dsa_practice::ListNode *node2 = new dsa_practice::ListNode(2);
-  dsa_practice::ListNode *node3 = new dsa_practice::ListNode(3);
-  dsa_practice::ListNode *node4 = new dsa_practice::ListNode(4);
-  dsa_practice::ListNode *node5 = new dsa_practice::ListNode(5);
+  dsa_practice::NodeSingle *node1 = new dsa_practice::NodeSingle(1);
+  dsa_practice::NodeSingle *node2 = new dsa_practice::NodeSingle(2);
+  dsa_practice::NodeSingle *node3 = new dsa_practice::NodeSingle(3);
+  dsa_practice::NodeSingle *node4 = new dsa_practice::NodeSingle(4);
+  dsa_practice::NodeSingle *node5 = new dsa_practice::NodeSingle(5);
 
   node1->next = node2;
   node2->next = node3;
@@ -117,7 +117,7 @@ TEST_CASE("Detect Cycle in Linked List", "[dsa_practice]")
   node5->next = node3;
 
   // Cycle detected at node with value 3
-  dsa_practice::ListNode *cycleNode = dsa_practice::detectCycle(node1);
+  dsa_practice::NodeSingle *cycleNode = dsa_practice::detectCycle(node1);
   REQUIRE(cycleNode != nullptr);
   REQUIRE(cycleNode->value == 3);
 
@@ -132,11 +132,11 @@ TEST_CASE("Detect Cycle in Linked List", "[dsa_practice]")
 TEST_CASE("Detect Cycle in Single Node", "[dsa_practice]")
 {
   // Create a linked list with a single node: 1
-  dsa_practice::ListNode *node = new dsa_practice::ListNode(1);
+  dsa_practice::NodeSingle *node = new dsa_practice::NodeSingle(1);
   node->next = node; // Cycle
 
   // Cycle detected at the only node
-  dsa_practice::ListNode *cycleNode = dsa_practice::detectCycle(node);
+  dsa_practice::NodeSingle *cycleNode = dsa_practice::detectCycle(node);
   REQUIRE(cycleNode != nullptr);
   REQUIRE(cycleNode->value == 1);
 
@@ -147,10 +147,10 @@ TEST_CASE("Detect Cycle in Single Node", "[dsa_practice]")
 TEST_CASE("Detect No Cycle in Empty List", "[dsa_practice]")
 {
   // Create an empty list
-  dsa_practice::ListNode *head = nullptr;
+  dsa_practice::NodeSingle *head = nullptr;
 
   // No cycle detected
-  dsa_practice::ListNode *cycleNode = dsa_practice::detectCycle(head);
+  dsa_practice::NodeSingle *cycleNode = dsa_practice::detectCycle(head);
   REQUIRE(cycleNode == nullptr);
 }
 

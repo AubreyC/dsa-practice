@@ -9,7 +9,23 @@ Books / Tutorials:
 Exercices:
 - Neetcode 150
 
+### Concepts:
+
+**Topics:**
+- Concepts
+- Bit Manipulation
+- Memory (Stack vs. Heap) Recursion
+- Dynamic Programming Big OTime &Space
+
 ### Structure:
+
+ **Topics:**
+- Data Structures
+- Linked Lists
+- Trees, Tries, &Graphs Stacks &Queues
+- Heaps Vectors / ArrayLists
+- Hash Tables
+
 
 - [x] Array Data Structure
 - [x] String in Data Structure
@@ -23,6 +39,12 @@ Exercices:
 
 ### Algorithms:
 
+**Topics:**
+- Algorithms
+- Breadth-First Search Depth-First Search
+- Binary Search Merge Sort
+- Quick Sort
+
 - [] Searching Algorithms
 - [] Sorting Algorithms
 - [] Introduction to Recursion
@@ -30,6 +52,13 @@ Exercices:
 - [] Graph Algorithms
 - [] Dynamic Programming or DP
 - [] Bitwise Algorithms
+
+
+## Random
+
+- [] Rotation vs Permutation
+- [] Multiplication / Addition incremental numbers
+- [] Factorial
 
 ### Notes / Common Problems:
 
@@ -129,3 +158,42 @@ Find longest non-repeating substring:
     - Limited access (only front and rear accessible).
 
 ### Tree Data Structure
+
+Tree:
+- Root node: No parent, Some children node
+- Each node: One parent, Some children node
+
+Types of Tree
+- Binary Tree : Every node has at most two children
+- Ternary Tree : Every node has at most three children
+- N-ary Tree : Every node has at most n children.
+
+Binary Search Tree (BTS):
+- Each node has up to two children maximum
+- For each node `n`: All left descendents <= `n` < all right descendents
+
+Balanced Binary Tree:
+-  A binary tree where the difference in heights between the left and right subtrees of any node is minimal (often defined as at most 1).
+
+Complete Binary Trees:
+- A binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.
+
+Full Binary Tree:
+- A binary tree where every node has either 0 or 2 children.
+
+Perfect Binary Tree:
+- A perfect binary tree is one that is both full and complete.
+- All leaf nodes will be at the same level, and this level has the maximum number of nodes.
+
+Binary Heap: Min Heap or Max heap
+- Must be a Complete Binary Trees
+-  Min Heap (opposite for Max heap):
+  - Key at the root must be the smallest among all the keys in the heap
+  - This property must hold true recursively for all nodes.
+
+### Graph
+
+Topics:
+- Depth First Search or DFS for a Graph
+- Priority Queue
+
