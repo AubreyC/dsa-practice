@@ -1,32 +1,37 @@
 # Data Structure and Algorithm
 
+Data Structure and Algorithm practice with notes and implementation.
+
 ## Ressources
 
-Books / Tutorials:
-- https://www.geeksforgeeks.org/dsa/
+### Books / Tutorials:
 - "Cracking the coding interview : 189 programming interview questions and solutions"  - Gayle Laakmann McDowell
+- [DSA Tutorial - Learn Data Structures and Algorithms](https://www.geeksforgeeks.org/dsa/)
 
-Exercices:
-- Neetcode 150
+### Exercices:
+
+- [Neetcode 150](https://neetcode.io/)
 
 ### Concepts:
 
 **Topics:**
 - Concepts
 - Bit Manipulation
-- Memory (Stack vs. Heap) Recursion
-- Dynamic Programming Big OTime &Space
+- Memory (Stack vs. Heap)
+- Recursion
+- Dynamic Programming
+- Big O: Time and Space
 
 ### Structure:
 
  **Topics:**
 - Data Structures
 - Linked Lists
-- Trees, Tries, &Graphs Stacks &Queues
+- Trees, Tries, Graphs, Stacks, Queues
 - Heaps Vectors / ArrayLists
 - Hash Tables
 
-
+**Implementation:**
 - [x] Array Data Structure
 - [x] String in Data Structure
 - [x] Hashing in Data Structure
@@ -45,6 +50,7 @@ Exercices:
 - Binary Search Merge Sort
 - Quick Sort
 
+**Implementation:**
 - [] Searching Algorithms
 - [] Sorting Algorithms
 - [] Introduction to Recursion
@@ -53,8 +59,7 @@ Exercices:
 - [] Dynamic Programming or DP
 - [] Bitwise Algorithms
 
-
-## Random
+### Miscellaneous Topics
 
 - [] Rotation vs Permutation
 - [] Multiplication / Addition incremental numbers
@@ -62,11 +67,13 @@ Exercices:
 
 ### Notes / Common Problems:
 
-Find longest non-repeating substring:
+**Find longest non-repeating substring:**
 - Two pointer: StartPtr & EndPtr
 - Hash map / Set
 - Move EndPtr and add char in Set until it is already in Set
 - Move StartPtr until the repeated char, remove the char from the set and move it once
+
+**Find repeating cycle:**
 
 ### Hash Data Structure
 
