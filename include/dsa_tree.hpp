@@ -19,8 +19,28 @@ namespace dsa_practice
       value(val) {};
   };
 
+  /**
+   * @brief Visit tree In-Order Transversal (left branch -> current node -> right branch)
+   *
+   * @param node
+   * @param fun
+   */
   void binaryTreeInOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun);
+
+  /**
+   * @brief Visit tree Pre-Order Transversal (current node -> left branch -> right branch)
+   *
+   * @param node
+   * @param fun
+   */
   void binaryTreePreOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun);
+
+  /**
+   * @brief Visit tree Post Order Transversal (left node -> right node -> current node)
+   *
+   * @param node
+   * @param fun
+   */
   void binaryTreePostOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun);
 
   // Generic graph
