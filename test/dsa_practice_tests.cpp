@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <catch2/catch_test_macros.hpp>
 
+#include "dsa_heap.hpp"
 #include "dsa_linked_list.hpp"
 #include "dsa_lru_cache.hpp"
 #include "dsa_search_sort.hpp"
@@ -180,4 +181,29 @@ TEST_CASE("LRU Cache - 2", "[dsa_practice]")
   REQUIRE(LRUCache.get(1) == -1);
   REQUIRE(LRUCache.get(3) == 3);
   REQUIRE(LRUCache.get(4) == 4);
+}
+
+TEST_CASE("Heap", "[dsa_practice]")
+{
+  std::vector<int> test = {1, 44, 3, 4, 23, 25, 6, 56};
+  dsa_practice::Heap heap;
+
+  for (const auto v : test)
+  {
+    heap.add(v);
+  };
+
+  std::vector<int> testSorted;
+  while (!heap.empty())
+  {
+    auto top = heap.top();
+    if (top)
+    {
+      testSorted.push_back(top.value());
+      heap.pop();
+    }
+  }
+
+  std::sort(test.begin(), test.end());
+  REQUIRE(test == testSorted);
 }

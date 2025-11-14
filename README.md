@@ -1,6 +1,6 @@
-# Data Structure and Algorithm
+# Data Structures and Algorithms
 
-Data Structure and Algorithm practice with notes and implementation.
+Data Structures and Algorithms practice with notes and implementation.
 
 ## Ressources
 
@@ -39,6 +39,10 @@ Data Structure and Algorithm practice with notes and implementation.
 - [x] Stack Data Structure
 - [x] Queue Data Structure
 - [] Tree Data Structure
+  - BFS search tree (Breadth-First Search)
+  - Binary search tree validation
+  - Convert traversal list -> Tree
+  - Convert Tree -> traversal list
 - [] Graph Data Structure
 - [] Trie Data Structure
 
@@ -46,7 +50,8 @@ Data Structure and Algorithm practice with notes and implementation.
 
 **Topics:**
 - Algorithms
-- Breadth-First Search Depth-First Search
+- Breadth-First Search
+- Depth-First Search
 - Binary Search Merge Sort
 - Quick Sort
 

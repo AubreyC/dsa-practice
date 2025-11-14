@@ -53,6 +53,54 @@ namespace dsa_practice
     std::vector<std::vector<int>> mAdjacentList;
   };
 
+  // Exercices:
+
+  /**
+   * @brief Visit tree Post Order Transversal (left node -> right node -> current node)
+   *
+   * @param node
+   * @param fun
+   */
+  std::vector<std::vector<int>> binaryTreeBreadthFirstSearch(BinaryNode *root);
+
+  std::vector<std::vector<int>>
+  mergeLevels(const std::vector<std::vector<int>> &lhs, const std::vector<std::vector<int>> &rhs);
+
+  /**
+   * @brief Given a binary tree root, return the level order traversal of it as a nested list, where
+   * each sublist contains the values of nodes at a particular level in the tree, from left to
+   * right.
+   *
+   * @param root
+   * @return std::vector<std::vector<int>>
+   */
+  std::vector<std::vector<int>> computeLevelOrder(BinaryNode *root);
+
+  /**
+   * @brief Create a Binary Tree structure from a input list
+   *
+   */
+
+  BinaryNode *createBinaryTree(const std::vector<int> &nodeValues);
+
+  // Test case:
+  // root = [5,4,6,null,null,3,7] -> false
+  // root=[2,1,3] -> true
+  // root=[1,2,3] -> false
+
+  /**
+   * @brief Check if a Binary Search Tree is valid
+   *        - root = [5,4,6,null,null,3,7] -> false
+   *        - root=[2,1,3] -> true
+   *        - root=[1,2,3] -> false
+   * @param root
+   * @param min
+   * @param max
+   * @return true
+   * @return false
+   */
+  bool isValidBST(BinaryNode *root, std::optional<int> min = {}, std::optional<int> max = {});
+
 } // namespace dsa_practice
 
 #endif

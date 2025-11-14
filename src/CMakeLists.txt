@@ -6,6 +6,7 @@ target_sources(dsa_practice_lib PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/dsa_lru_cache.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/dsa_search_sort.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/dsa_linked_list.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/dsa_heap.cpp
 )
 
 target_include_directories(dsa_practice_lib PUBLIC
