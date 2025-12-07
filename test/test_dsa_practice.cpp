@@ -8,7 +8,17 @@
 
 TEST_CASE("Binary Search", "[dsa_practice]")
 {
-  std::vector<int> numbers = {1, 5, 3, 8, 6, 7, 33, 10, 11};
+  std::vector<int> numbers = {
+    1,
+    3,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    33,
+  };
   int target = 33;
   bool found = std::find(numbers.begin(), numbers.end(), target) != numbers.end();
 

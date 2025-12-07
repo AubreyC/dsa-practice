@@ -1,5 +1,6 @@
 #include "dsa_search_sort.hpp"
 #include <algorithm>
+#include <iostream>
 
 namespace dsa_practice
 {
@@ -62,44 +63,36 @@ namespace dsa_practice
     return mergeSorted(ret1, ret2);
   }
 
-  std::optional<int> binarySearch(const std::vector<int> &nums, const int target)
+  std::optional<int> binarySearch(const std::vector<int> &numsSorted, const int target)
   {
-    // Handle empty input
-    if (nums.empty())
+    if (numsSorted.empty())
     {
       return {};
     }
 
-    // Sort array first
-    std::vector<int> sortedNums = nums;
-    std::sort(sortedNums.begin(), sortedNums.end());
+    int lowdIdx = 0;
+    int upperIdx = numsSorted.size() - 1;
 
-    // Actual binary search (inclusive bounds)
-    size_t idxStart = 0;
-    size_t idxEnd = sortedNums.size() - 1;
-    while (idxStart <= idxEnd)
+    std::optional<int> result;
+    while (lowdIdx <= upperIdx)
     {
-      size_t mid = (idxEnd - idxStart) / 2 + idxStart;
-      if (sortedNums[mid] == target)
+      int idx = lowdIdx + (upperIdx - lowdIdx) / 2;
+      if (numsSorted[idx] == target)
       {
-        return {static_cast<int>(mid)};
+        result = {idx};
+        break;
       }
-      else if (sortedNums[mid] > target)
+      else if (numsSorted[idx] > target)
       {
-        // Prevent size_t underflow
-        if (mid == 0)
-        {
-          break;
-        }
-        idxEnd = mid - 1;
+        upperIdx = idx - 1;
       }
       else
       {
-        idxStart = mid + 1;
+        lowdIdx = idx + 1;
       }
     }
 
-    return {};
+    return result;
   }
 
 } // namespace dsa_practice
