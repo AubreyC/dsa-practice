@@ -19,6 +19,7 @@ target_sources(tests PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/test_dsa_tree.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/test_dsa_practice.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/test_dsa_linked_list.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/test_dsa_union_find.cpp
 )
 
 include(CTest)
