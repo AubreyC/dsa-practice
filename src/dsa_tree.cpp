@@ -13,13 +13,13 @@ namespace dsa_practice
    */
   void binaryTreeInOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun)
   {
-    if (!node)
+    if (node)
     {
       binaryTreeInOrderTransversal(node->left, fun);
       fun(node->value);
       binaryTreeInOrderTransversal(node->right, fun);
     }
-  };
+  }
 
   /**
    * @brief Pre-order traversal visits the current node before its child nodes (hence the name
@@ -30,11 +30,11 @@ namespace dsa_practice
    */
   void binaryTreePreOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun)
   {
-    if (!node)
+    if (node)
     {
       fun(node->value);
-      binaryTreeInOrderTransversal(node->left, fun);
-      binaryTreeInOrderTransversal(node->right, fun);
+      binaryTreePreOrderTransversal(node->left, fun);
+      binaryTreePreOrderTransversal(node->right, fun);
     }
   }
 
@@ -47,31 +47,12 @@ namespace dsa_practice
    */
   void binaryTreePostOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun)
   {
-    if (!node)
+    if (node)
     {
-      binaryTreeInOrderTransversal(node->left, fun);
-      binaryTreeInOrderTransversal(node->right, fun);
+      binaryTreePostOrderTransversal(node->left, fun);
+      binaryTreePostOrderTransversal(node->right, fun);
       fun(node->value);
     }
-  }
-
-  std::vector<std::vector<int>>
-  mergeLevels(const std::vector<std::vector<int>> &lhs, const std::vector<std::vector<int>> &rhs)
-  {
-    int s = std::max(rhs.size(), lhs.size());
-    std::vector<std::vector<int>> ret(s, std::vector<int>());
-    for (int idx = 0; idx < s; idx++)
-    {
-      if (idx < lhs.size())
-      {
-        ret[idx].insert(ret[idx].end(), lhs[idx].begin(), lhs[idx].end());
-      }
-      if (idx < rhs.size())
-      {
-        ret[idx].insert(ret[idx].end(), rhs[idx].begin(), rhs[idx].end());
-      }
-    }
-    return ret;
   }
 
   /**
@@ -84,6 +65,26 @@ namespace dsa_practice
    */
   std::vector<std::vector<int>> computeLevelOrder(BinaryNode *root)
   {
+    auto mergeLevels =
+      [](
+        const std::vector<std::vector<int>> &lhs,
+        const std::vector<std::vector<int>> &rhs) -> std::vector<std::vector<int>> {
+      int s = std::max(rhs.size(), lhs.size());
+      std::vector<std::vector<int>> ret(s, std::vector<int>());
+      for (int idx = 0; idx < s; idx++)
+      {
+        if (idx < lhs.size())
+        {
+          ret[idx].insert(ret[idx].end(), lhs[idx].begin(), lhs[idx].end());
+        }
+        if (idx < rhs.size())
+        {
+          ret[idx].insert(ret[idx].end(), rhs[idx].begin(), rhs[idx].end());
+        }
+      }
+      return ret;
+    };
+
     std::vector<std::vector<int>> ret;
     if (root)
     {
@@ -145,33 +146,68 @@ namespace dsa_practice
     return ret;
   }
 
-  BinaryNode *createBinaryTree(const std::vector<int> &nodeValues)
+  std::vector<std::optional<int>> serializeLevelOrder(const BinaryNode *root)
   {
-    if (nodeValues.size() == 0)
+    std::vector<std::optional<int>> ret;
+    if (!root)
+    {
+      return ret;
+    }
+
+    std::queue<const BinaryNode *> nodeQueue;
+    nodeQueue.push(root);
+    while (!nodeQueue.empty())
+    {
+      const BinaryNode *node = nodeQueue.front();
+      nodeQueue.pop();
+
+      if (node)
+      {
+        ret.push_back({node->value});
+      }
+      else
+      {
+        ret.push_back({});
+      }
+    }
+
+    return ret;
+  }
+
+  BinaryNode *deserializeLevelOrder(const std::vector<std::optional<int>> &nodeValues)
+  {
+    if (nodeValues.empty())
     {
       return nullptr;
     }
 
-    std::queue<BinaryNode *> queue;
-
-    size_t idx = 0;
-    BinaryNode *root = new BinaryNode(nodeValues[idx++]);
-
-    queue.push(root);
-    while (idx < nodeValues.size())
+    std::queue<BinaryNode *> nodeQueue;
+    size_t currentIdx = 0;
+    const auto &rootValue = nodeValues[currentIdx++];
+    if (!rootValue.has_value())
     {
-      BinaryNode *node = queue.front();
+      return nullptr;
+    }
 
-      if (idx < nodeValues.size())
+    BinaryNode *root = new BinaryNode(rootValue.value());
+    nodeQueue.push(root);
+    while (currentIdx < nodeValues.size())
+    {
+      BinaryNode *parent = nodeQueue.front();
+      nodeQueue.pop();
+
+      const auto &leftValue = nodeValues[currentIdx++];
+      if (leftValue.has_value())
       {
-        node->left = new BinaryNode(nodeValues[idx++]);
-        queue.push(node->left);
+        parent->left = new BinaryNode(leftValue.value());
+        nodeQueue.push(parent->left);
       }
 
-      if (idx < nodeValues.size())
+      const auto &rightValue = nodeValues[currentIdx++];
+      if (rightValue.has_value())
       {
-        node->right = new BinaryNode(nodeValues[idx++]);
-        queue.push(node->left);
+        parent->right = new BinaryNode(rightValue.value());
+        nodeQueue.push(parent->right);
       }
     }
 

@@ -4,19 +4,17 @@ Data Structures and Algorithms practice with notes and implementation.
 
 ## Ressources
 
-### Books / Tutorials:
+**Books**
 - "Cracking the coding interview : 189 programming interview questions and solutions"  - Gayle Laakmann McDowell
+
+**Website**
 - [DSA Tutorial - Learn Data Structures and Algorithms](https://www.geeksforgeeks.org/dsa/)
+- [NeetCode](https://neetcode.io/roadmap)
+- [LeetCode](https://leetcode.com/)
 
-### Exercices:
-
-- [Neetcode 150](https://neetcode.io/)
-
-### Concepts:
+## Concepts:
 
 **Topics:**
-- Concepts
-- Bit Manipulation
 - Memory (Stack vs. Heap)
 - Recursion
 - Dynamic Programming
@@ -25,11 +23,23 @@ Data Structures and Algorithms practice with notes and implementation.
 ### Structure:
 
  **Topics:**
-- Data Structures
-- Linked Lists
-- Trees, Tries, Graphs, Stacks, Queues
-- Heaps Vectors / ArrayLists
-- Hash Tables
+- Arrays / Vector
+- Hashing
+- Two Pointers
+- Stack
+- Binary search
+- Sliding Window
+- Linked List
+- Trees
+- Tries
+- Backtracking
+- Heap / Priority queue
+- Graphs
+- Dynamming programming:
+  - 1D
+  - 2D
+- Bit manipulation
+- Math & Geometry
 
 **Implementation:**
 - [x] Array Data Structure
@@ -38,11 +48,11 @@ Data Structures and Algorithms practice with notes and implementation.
 - [x] Linked List Data Structure
 - [x] Stack Data Structure
 - [x] Queue Data Structure
-- [] Tree Data Structure
-  - BFS search tree (Breadth-First Search)
-  - Binary search tree validation
-  - Convert traversal list -> Tree
-  - Convert Tree -> traversal list
+- [x] Tree Data Structure
+    - BFS search tree (Breadth-First Search)
+    - Binary search tree validation
+    - Convert traversal list -> Tree
+    - Convert Tree -> traversal list
 - [] Graph Data Structure
 - [] Trie Data Structure
 
@@ -70,15 +80,60 @@ Data Structures and Algorithms practice with notes and implementation.
 - [] Multiplication / Addition incremental numbers
 - [] Factorial
 
+### Specific exercices:
+
+**Must know**:
+Array / String:
+- Implement merge sort
+- Implement Binary search
+- Impelement tri-search
+- Detect cycle in graph (with proof)
+
+Two pointers:
+- Find middle of linked list
+- Find middle of array
+
+Linked list:
+- LRU implementation
+- Inverse linked list
+
+Binary Tree:
+- Binary Tree Level Order Traversal
+- Depth First Search:
+- Bread First search: Go through tree level by level (use a stack)
+- Vector to Tree and Tree to vector
+
+Binary Search Tree:
+- search algo
+- insertion
+- deletion
+
+Backtracking:
+- All permutation of size k
+- All combination of size k
+
+**Commons exercices:**:
+- Find longest non-repeating substring:**
+  - Two pointer: StartPtr & EndPtr
+  - Hash map / Set
+  - Move EndPtr and add char in Set until it is already in Set
+  - Move StartPtr until the repeated char, remove the char from the set and move it once
+- Find repeating cycle
+- Construct Binary Tree from Preorder and Inorder Traversal
+- Maximum path in a Binary Tree
+- Heapify
+- Merge K sorted list
+- Find median of 2 sorted lists
+
+Backtracking:
+- All permutation of size k:
+  - backtracking (recursion): at each step genetate a n new solution by adding
+- All combination of size k:
+  - backtracking (recusion): binary tree with each steps:
+    - option 1: add current value and recusive
+    - option 2: do not add current value and remove current value from the pool of possible value (move index to the right)
+
 ### Notes / Common Problems:
-
-**Find longest non-repeating substring:**
-- Two pointer: StartPtr & EndPtr
-- Hash map / Set
-- Move EndPtr and add char in Set until it is already in Set
-- Move StartPtr until the repeated char, remove the char from the set and move it once
-
-**Find repeating cycle:**
 
 ### Hash Data Structure
 

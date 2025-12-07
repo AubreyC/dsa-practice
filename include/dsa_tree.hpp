@@ -43,18 +43,6 @@ namespace dsa_practice
    */
   void binaryTreePostOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun);
 
-  // Generic graph
-  class Graph
-  {
-    Graph(const int numberNodes) :
-      mAdjacentList(numberNodes, std::vector<int>()) {};
-
-  private:
-    std::vector<std::vector<int>> mAdjacentList;
-  };
-
-  // Exercices:
-
   /**
    * @brief Visit tree Post Order Transversal (left node -> right node -> current node)
    *
@@ -62,9 +50,6 @@ namespace dsa_practice
    * @param fun
    */
   std::vector<std::vector<int>> binaryTreeBreadthFirstSearch(BinaryNode *root);
-
-  std::vector<std::vector<int>>
-  mergeLevels(const std::vector<std::vector<int>> &lhs, const std::vector<std::vector<int>> &rhs);
 
   /**
    * @brief Given a binary tree root, return the level order traversal of it as a nested list, where
@@ -74,19 +59,16 @@ namespace dsa_practice
    * @param root
    * @return std::vector<std::vector<int>>
    */
-  std::vector<std::vector<int>> computeLevelOrder(BinaryNode *root);
+  std::vector<std::vector<int>> serializeLevelOrder(BinaryNode *root);
 
   /**
-   * @brief Create a Binary Tree structure from a input list
+   * @brief Create a Binary Tree structure from a input level order list
    *
+   * @param nodeValues
+   * @return BinaryNode*
    */
 
-  BinaryNode *createBinaryTree(const std::vector<int> &nodeValues);
-
-  // Test case:
-  // root = [5,4,6,null,null,3,7] -> false
-  // root=[2,1,3] -> true
-  // root=[1,2,3] -> false
+  BinaryNode *deserializeLevelOrder(const std::vector<std::optional<int>> &nodeValues);
 
   /**
    * @brief Check if a Binary Search Tree is valid

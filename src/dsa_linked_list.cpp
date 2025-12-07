@@ -6,6 +6,21 @@
 namespace dsa_practice
 {
 
+  NodeSingle *reverseLinkedList(NodeSingle *head)
+  {
+    NodeSingle *currentNode = head;
+    NodeSingle *previousNode = nullptr;
+    while (currentNode)
+    {
+      NodeSingle *temp = currentNode->next;
+      currentNode->next = previousNode;
+      previousNode = currentNode;
+      currentNode = temp;
+    }
+
+    return previousNode;
+  }
+
   NodeSingle *addTwoNumbers(NodeSingle *l1, NodeSingle *l2)
   {
     NodeSingle *currentL1 = new NodeSingle(0);

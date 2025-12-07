@@ -4,6 +4,7 @@
 #include <functional>
 #include <list>
 #include <stdlib.h>
+#include <type_traits>
 #include <unistd.h>
 
 namespace dsa_practice

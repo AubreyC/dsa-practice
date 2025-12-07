@@ -1,4 +1,5 @@
 #include "dsa_search_sort.hpp"
+#include <algorithm>
 
 namespace dsa_practice
 {

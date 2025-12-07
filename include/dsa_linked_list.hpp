@@ -39,6 +39,15 @@ namespace dsa_practice
   };
 
   /**
+   * @brief Reverse linked list
+   *
+   *
+   * @param head
+   * @return ListNode*
+   */
+  NodeSingle *reverseLinkedList(NodeSingle *head);
+
+  /**
    * @brief Detect cycle in a linked-list based on Hare-Tortoise algorithm (Floyd's cycle finding
    * algorithm )
    *

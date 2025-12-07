@@ -96,65 +96,6 @@ TEST_CASE("Merge Sort - Single element", "[dsa_practice]")
   REQUIRE(ret == numbers);
 }
 
-// Test cases for detectCycle function
-TEST_CASE("Detect Cycle in Linked List", "[dsa_practice]")
-{
-  // Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
-  dsa_practice::NodeSingle *node1 = new dsa_practice::NodeSingle(1);
-  dsa_practice::NodeSingle *node2 = new dsa_practice::NodeSingle(2);
-  dsa_practice::NodeSingle *node3 = new dsa_practice::NodeSingle(3);
-  dsa_practice::NodeSingle *node4 = new dsa_practice::NodeSingle(4);
-  dsa_practice::NodeSingle *node5 = new dsa_practice::NodeSingle(5);
-
-  node1->next = node2;
-  node2->next = node3;
-  node3->next = node4;
-  node4->next = node5;
-
-  // No cycle
-  REQUIRE(dsa_practice::detectCycle(node1) == nullptr);
-
-  // Create a cycle: 5 -> 3 -> ...
-  node5->next = node3;
-
-  // Cycle detected at node with value 3
-  dsa_practice::NodeSingle *cycleNode = dsa_practice::detectCycle(node1);
-  REQUIRE(cycleNode != nullptr);
-  REQUIRE(cycleNode->value == 3);
-
-  // Clean up
-  delete node1;
-  delete node2;
-  delete node3;
-  delete node4;
-  delete node5;
-}
-
-TEST_CASE("Detect Cycle in Single Node", "[dsa_practice]")
-{
-  // Create a linked list with a single node: 1
-  dsa_practice::NodeSingle *node = new dsa_practice::NodeSingle(1);
-  node->next = node; // Cycle
-
-  // Cycle detected at the only node
-  dsa_practice::NodeSingle *cycleNode = dsa_practice::detectCycle(node);
-  REQUIRE(cycleNode != nullptr);
-  REQUIRE(cycleNode->value == 1);
-
-  // Clean up
-  delete node;
-}
-
-TEST_CASE("Detect No Cycle in Empty List", "[dsa_practice]")
-{
-  // Create an empty list
-  dsa_practice::NodeSingle *head = nullptr;
-
-  // No cycle detected
-  dsa_practice::NodeSingle *cycleNode = dsa_practice::detectCycle(head);
-  REQUIRE(cycleNode == nullptr);
-}
-
 TEST_CASE("LRU Cache - 1", "[dsa_practice]")
 {
   dsa_practice::LRUCache LRUCache(2);

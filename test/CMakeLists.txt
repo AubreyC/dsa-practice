@@ -16,7 +16,9 @@ add_executable(tests)
 target_link_libraries(tests PRIVATE Catch2::Catch2WithMain dsa_practice_lib)
 
 target_sources(tests PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/dsa_practice_tests.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/test_dsa_tree.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/test_dsa_practice.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/test_dsa_linked_list.cpp
 )
 
 include(CTest)
