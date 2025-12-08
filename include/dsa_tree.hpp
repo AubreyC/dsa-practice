@@ -52,14 +52,13 @@ namespace dsa_practice
   std::vector<std::vector<int>> binaryTreeBreadthFirstSearch(BinaryNode *root);
 
   /**
-   * @brief Given a binary tree root, return the level order traversal of it as a nested list, where
-   * each sublist contains the values of nodes at a particular level in the tree, from left to
-   * right.
+   * @brief Serialize a binary tree to a level-order array representation where null nodes are
+   * represented as empty optionals. This is the inverse of deserializeLevelOrder.
    *
    * @param root
-   * @return std::vector<std::vector<int>>
+   * @return std::vector<std::optional<int>>
    */
-  std::vector<std::vector<int>> serializeLevelOrder(BinaryNode *root);
+  std::vector<std::optional<int>> serializeLevelOrder(const BinaryNode *root);
 
   /**
    * @brief Create a Binary Tree structure from a input level order list

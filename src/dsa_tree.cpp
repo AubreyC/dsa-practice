@@ -164,6 +164,8 @@ namespace dsa_practice
       if (node)
       {
         ret.push_back({node->value});
+        nodeQueue.push(node->left);
+        nodeQueue.push(node->right);
       }
       else
       {
@@ -171,43 +173,52 @@ namespace dsa_practice
       }
     }
 
+    // Trim trailing nulls
+    while (!ret.empty() && !ret.back().has_value())
+    {
+      ret.pop_back();
+    }
+
     return ret;
   }
 
   BinaryNode *deserializeLevelOrder(const std::vector<std::optional<int>> &nodeValues)
   {
-    if (nodeValues.empty())
+    if (nodeValues.empty() || !nodeValues[0].has_value())
     {
       return nullptr;
     }
 
     std::queue<BinaryNode *> nodeQueue;
-    size_t currentIdx = 0;
-    const auto &rootValue = nodeValues[currentIdx++];
-    if (!rootValue.has_value())
-    {
-      return nullptr;
-    }
-
-    BinaryNode *root = new BinaryNode(rootValue.value());
+    BinaryNode *root = new BinaryNode(nodeValues[0].value());
     nodeQueue.push(root);
-    while (currentIdx < nodeValues.size())
+
+    size_t currentIdx = 1;
+    while (!nodeQueue.empty() && currentIdx < nodeValues.size())
     {
       BinaryNode *parent = nodeQueue.front();
       nodeQueue.pop();
 
-      const auto &leftValue = nodeValues[currentIdx++];
-      if (leftValue.has_value())
+      // Left child
+      if (currentIdx < nodeValues.size())
       {
-        parent->left = new BinaryNode(leftValue.value());
-        nodeQueue.push(parent->left);
+        const auto &leftValue = nodeValues[currentIdx++];
+        if (leftValue.has_value())
+        {
+          parent->left = new BinaryNode(leftValue.value());
+          nodeQueue.push(parent->left);
+        }
       }
 
-      const auto &rightValue = nodeValues[currentIdx++];
-      if (rightValue.has_value())
+      // Right child
+      if (currentIdx < nodeValues.size())
       {
-        parent->right = new BinaryNode(rightValue.value());
-        nodeQueue.push(parent->right);
+        const auto &rightValue = nodeValues[currentIdx++];
+        if (rightValue.has_value())
+        {
+          parent->right = new BinaryNode(rightValue.value());
+          nodeQueue.push(parent->right);
+        }
       }
     }
 
