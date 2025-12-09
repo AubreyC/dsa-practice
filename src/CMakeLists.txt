@@ -8,6 +8,7 @@ target_sources(dsa_practice_lib PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/dsa_linked_list.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/dsa_heap.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/dsa_union_find.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/dsa_backtracking.cpp
 )
 
 target_include_directories(dsa_practice_lib PUBLIC

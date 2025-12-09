@@ -4,6 +4,7 @@
 // #include "dsa_practice.hpp"
 // #include "structure.hpp"
 
+#include "dsa_backtracking.hpp"
 #include <algorithm>
 #include <chrono>
 #include <iostream>
@@ -144,4 +145,15 @@
 
 int main(int argc, char *argv[])
 {
+  std::vector<int> nums = {4, 5, 6, 7, 8};
+
+  auto result = dsa_practice::computePermutation(nums, 3);
+  for (auto &p : result)
+  {
+    for (int v : p)
+    {
+      std::cout << v << ", ";
+    }
+    std::cout << "" << std::endl;
+  }
 }

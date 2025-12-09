@@ -1,35 +1,47 @@
-#include "backtracking.hpp"
+#include "dsa_backtracking.hpp"
+
+#include <iostream>
+#include <vector>
 
 namespace dsa_practice
 {
   namespace
   {
     void getPermutations(
-      const std::vector<int> &nums,
+      std::vector<std::vector<int>> &result,
+      std::vector<int> &currentNums,
       const int k,
-      std::vector<std::vector<int>> &currentPermutation,
       const int currentIdx)
     {
-      if (nums.empty() || k > nums.size())
+      // Recursively:
+      // - Iterate over candidate [currentIdx; end of nums]
+      // - Move the value in front of the vector (so we can't choose it at the next recursive
+      // iteration)
+      // - Once we reach k iteration: the k first values of the vector is the current permutation
+      if (currentIdx >= k)
       {
+        std::vector<int> ret(k);
+        std::copy(currentNums.begin(), currentNums.begin() + k, ret.begin());
+        result.push_back(ret);
         return;
       }
 
-      for (const int idx = currentIdx; idx < nums.size(); i++)
+      for (size_t idx = currentIdx; idx < currentNums.size(); idx++)
       {
-        std::vector<std::vector<int>> newPermuations = currentPermutation;
-        newPermuations.push_back(n);
-        getPermutations(nums, k, newPermuations);
+        std::swap(currentNums[currentIdx], currentNums[idx]);
+        getPermutations(result, currentNums, k, currentIdx + 1);
+        std::swap(currentNums[currentIdx], currentNums[idx]);
       }
+
+      return;
     }
   } // namespace
 
   std::vector<std::vector<int>> computePermutation(const std::vector<int> &nums, const int k)
   {
-    std::vector<std::vector<int>> ret;
-    if (nums.empty() || k > nums.size())
-    {
-      return ret;
-    }
+    std::vector<std::vector<int>> resuslt;
+    std::vector<int> currentNums = nums;
+    getPermutations(resuslt, currentNums, k, 0);
+    return resuslt;
   }
 } // namespace dsa_practice

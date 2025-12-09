@@ -10,7 +10,7 @@ namespace dsa_practice
 {
 
   /**
-   * @brief Compute all permutation subsets of size k
+   * @brief Compute all permutation subsets of size k (without repetition)
    *
    * @param nums
    * @param k
