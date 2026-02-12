@@ -8,16 +8,15 @@ namespace dsa_practice
 
   NodeSingle *reverseLinkedList(NodeSingle *head)
   {
-    NodeSingle *currentNode = head;
+    NodeSingle *currentHead = head;
     NodeSingle *previousNode = nullptr;
-    while (currentNode)
+    while (currentHead)
     {
-      NodeSingle *temp = currentNode->next;
-      currentNode->next = previousNode;
-      previousNode = currentNode;
-      currentNode = temp;
+      NodeSingle *temp = currentHead->next;
+      currentHead->next = previousNode;
+      previousNode = currentHead;
+      currentHead = temp;
     }
-
     return previousNode;
   }
 

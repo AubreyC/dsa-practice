@@ -89,6 +89,10 @@ Array / String:
 - Impelement tri-search
 - Detect cycle in graph (with proof)
 
+Map / Priority queue:
+- Min / Max priority queue with custom comparator
+- Find K top elements
+
 Two pointers:
 - Find middle of linked list
 - Find middle of array
@@ -113,6 +117,7 @@ Backtracking:
 - All combination of size k
 
 **Commons exercices:**:
+- Reverse linked list
 - Find longest non-repeating substring:**
   - Two pointer: StartPtr & EndPtr
   - Hash map / Set
@@ -122,7 +127,16 @@ Backtracking:
 - Construct Binary Tree from Preorder and Inorder Traversal
 - Maximum path in a Binary Tree
 - Heapify
+- Create priority queue with custom structure and custom comparator
+```
+       auto compare = [](const std::pair<int, int>& a, const std::pair<int, int>& b) {
+            return a.first < b.first;
+        };
+
+       std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, decltype(compare)> maxHeap(compare);
+```
 - Merge K sorted list
+- Largest common parent of two nodes in binary tree
 - Find median of 2 sorted lists
 
 Backtracking:
@@ -132,6 +146,12 @@ Backtracking:
   - backtracking (recusion): binary tree with each steps:
     - option 1: add current value and recusive
     - option 2: do not add current value and remove current value from the pool of possible value (move index to the right)
+
+### Complexity:
+
+- Heap:
+  -  heap sort: `O(nLogn)`
+  -  insert, delete, extractMax, and decreaseKey: `O(log N)`
 
 ### Notes / Common Problems:
 
@@ -226,7 +246,7 @@ Backtracking:
 
 ### Tree Data Structure
 
-Tree:
+**Tree:**
 - Root node: No parent, Some children node
 - Each node: One parent, Some children node
 
@@ -263,4 +283,5 @@ Binary Heap: Min Heap or Max heap
 Topics:
 - Depth First Search or DFS for a Graph
 - Priority Queue
+
 

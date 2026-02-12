@@ -43,12 +43,6 @@ namespace dsa_practice
    */
   void binaryTreePostOrderTransversal(BinaryNode *node, const std::function<void(int)> &fun);
 
-  /**
-   * @brief Visit tree Post Order Transversal (left node -> right node -> current node)
-   *
-   * @param node
-   * @param fun
-   */
   std::vector<std::vector<int>> binaryTreeBreadthFirstSearch(BinaryNode *root);
 
   /**
